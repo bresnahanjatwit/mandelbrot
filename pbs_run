@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -l nodes=12:ppn=12
+#PBS -l walltime=00:02:30
+#PBS -q batch
+#PBS -N int_run
+#PBS -j oe
+
+cd ~/final
+mpiexec -n 12 -bind-to none --map-by ppr:1:node --hostfile $PBS_NODEFILE ./final.x
